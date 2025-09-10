@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bon Appetit | Shopify Store Mockup</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f7f7f7;
+      color: #333;
+    }
+    header {
+      background: #222;
+      color: white;
+      padding: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header nav a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+    .hero {
+      background: #444;
+      text-align: center;
+      padding: 80px 20px;
+      color: white;
+    }
+    .btn {
+      background: #ff6600;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 10px;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+    .btn:hover {
+      background: #e85c5c;
+    }
+    .products .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+    .card {
+      background: white;
+      padding: 15px;
+      border-radius: 5px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .card img {
+      max-width: 100%;
+      border-radius: 5px;
+    }
+    .product-detail {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 20px;
+      background: white;
+      margin: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .product-detail img {
+      max-width: 300px;
+      border-radius: 5px;
+    }
+    .cart, .payment {
+      background: #fff;
+      max-width: 500px;
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    #cart-items div {
+      padding: 8px;
+      border-bottom: 1px solid #eee;
+    }
+    #cart-total {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+    /* Payment Form */
+    #payment {
+      display: none;
+    }
+    #payment-form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    #payment-form label {
+      display: flex;
+      flex-direction: column;
+      font-size: 14px;
+      color: #555;
+    }
+    #payment-form input, 
+    #payment-form select {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+      margin-top: 5px;
+    }
+    .row {
+      display: flex;
+      gap: 10px;
+    }
+    .pay-option {
+      display: none;
+      margin-top: 10px;
+    }
+    footer {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Bon Appetit</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#shop">Shop</a>
+      <a href="#cart">Cart</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <h2>Fresh & Delicious Meals</h2>
+    <p>Order your favorite dishes online.</p>
+    <a href="#shop" class="btn">Shop Now</a>
+  </section>
+
+  <!-- Products -->
+  <section id="shop" class="products">
+    <h2 style="text-align:center;">Our Products</h2>
+    <div class="grid">
+      <div class="card">
+        <img src="Cheeseburger.jpg" alt="Burger">
+        <h3>Cheese Burger</h3>
+        <p>$5.99</p>
+        <button class="btn" onclick="addToCart('Cheese Burger', 5.99)">Add to Cart</button>
+      </div>
+      <div class="card">
+        <img src="French_Fries.png" alt="Fries">
+        <h3>French Fries</h3>
+        <p>$2.99</p>
+        <button class="btn" onclick="addToCart('French Fries', 2.99)">Add to Cart</button>
+      </div>
+      <div class="card">
+        <img src="Coke_Zero_1.5L.jpg" alt="Drink">
+        <h3>Soft Drink</h3>
+        <p>$3.99</p>
+        <button class="btn" onclick="addToCart('Soft Drink', 3.99)">Add to Cart</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Detail -->
+  <section class="product-detail">
+    <img src="Cheeseburger.jpg" alt="Cheese Burger">
+    <div>
+      <h2>Cheese Burger</h2>
+      <p class="price">$5.99</p>
+      <p>Juicy beef patty with cheese, lettuce, and tomato.</p>
+      <button class="btn" onclick="addToCart('Cheese Burger', 5.99)">Add to Cart</button>
+    </div>
+  </section>
+
+  <!-- Cart -->
+  <section id="cart" class="cart">
+    <h2>Your Cart</h2>
+    <div id="cart-items"></div>
+    <p id="cart-total"></p>
+    <button class="btn" onclick="checkout()">Checkout</button>
+  </section>
+
+  <!-- Payment Section -->
+  <section id="payment" class="payment">
+    <h2>Payment Details</h2>
+    <form id="payment-form">
+      <label>
+        Select Payment Method:
+        <select id="payment-method" required>
+          <option value="">-- Choose --</option>
+          <option value="card">Credit/Debit Card</option>
+          <option value="cod">Cash on Delivery</option>
+          <option value="gcash">GCash</option>
+          <option value="paypal">PayPal</option>
+        </select>
+      </label>
+
+      <!-- Card Payment Section -->
+      <div id="card-section" class="pay-option">
+        <label>Name on Card:
+          <input type="text" id="card-name">
+        </label>
+        <label>Card Number:
+          <input type="text" id="card-number" maxlength="16">
+        </label>
+        <div class="row">
+          <label>Expiry Date:
+            <input type="month" id="expiry">
+          </label>
+          <label>CVV:
+            <input type="password" id="cvv" maxlength="3">
+          </label>
+        </div>
+      </div>
+
+      <!-- GCash Section -->
+      <div id="gcash-section" class="pay-option">
+        <label>GCash Number:
+          <input type="text" id="gcash-number" maxlength="11">
+        </label>
+      </div>
+
+      <!-- PayPal Section -->
+      <div id="paypal-section" class="pay-option">
+        <p>You will be redirected to PayPal to complete your payment.</p>
+      </div>
+
+      <button type="submit" class="btn">Confirm Payment</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2025 Bon Appetit | Shopify Store Mockup</p>
+  </footer>
+
+  <script>
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    function addToCart(name, price) {
+      cart.push({ name, price });
+      localStorage.setItem("cart", JSON.stringify(cart));
+      alert(name + " added to cart!");
+      loadCart();
+    }
+
+    function loadCart() {
+      let cartItemsDiv = document.getElementById("cart-items");
+      let total = 0;
+      if (!cartItemsDiv) return;
+
+      cartItemsDiv.innerHTML = "";
+      cart.forEach(item => {
+        let div = document.createElement("div");
+        div.textContent = item.name + " - $" + item.price.toFixed(2);
+        cartItemsDiv.appendChild(div);
+        total += item.price;
+      });
+      document.getElementById("cart-total").textContent = "Total: $" + total.toFixed(2);
+    }
+
+    function checkout() {
+      if (cart.length === 0) {
+        alert("Your cart is empty!");
+        return;
+      }
+      document.getElementById("payment").style.display = "block";
+    }
+
+    document.getElementById("payment-method").addEventListener("change", function() {
+      let method = this.value;
+      document.querySelectorAll(".pay-option").forEach(sec => sec.style.display = "none");
+      if (method === "card") document.getElementById("card-section").style.display = "block";
+      if (method === "gcash") document.getElementById("gcash-section").style.display = "block";
+      if (method === "paypal") document.getElementById("paypal-section").style.display = "block";
+    });
+
+    document.getElementById("payment-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+      let total = cart.reduce((sum, item) => sum + item.price, 0);
+      let method = document.getElementById("payment-method").value;
+
+      if (!method) {
+        alert("Please select a payment method.");
+        return;
+      }
+
+      alert("Payment successful via " + method.toUpperCase() + "! Total: $" + total.toFixed(2));
+      cart = [];
+      localStorage.removeItem("cart");
+      loadCart();
+      document.getElementById("payment").style.display = "none";
+    });
+
+    window.onload = loadCart;
+  </script>
+</body>
+</html>

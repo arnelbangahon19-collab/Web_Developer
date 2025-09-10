@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arnel Bangahon | Portfolio</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Arial, sans-serif;
+    }
+
+    body {
+      line-height: 1.6;
+      background: #f5f6fa;
+      color: #2f3640;
+    }
+
+    /* Header / Hero */
+    header {
+      background: linear-gradient(135deg, #273c75, #40739e);
+      color: #fff;
+      text-align: center;
+      padding: 100px 20px;
+    }
+
+    header h1 {
+      font-size: 2.8rem;
+      font-weight: bold;
+    }
+
+    header p {
+      margin: 10px 0;
+      font-size: 1.3rem;
+      opacity: 0.9;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 25px;
+      background: #e1b12c;
+      color: #000;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 8px;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #fbc531;
+    }
+
+    /* Sections */
+    section {
+      padding: 70px 20px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      color: #273c75;
+      text-align: center;
+    }
+
+    /* About */
+    #about p {
+      text-align: center;
+      max-width: 800px;
+      margin: auto;
+      font-size: 1.1rem;
+    }
+
+    /* Skills */
+    .skills-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .skills-list li {
+      background: #dcdde1;
+      padding: 15px;
+      border-radius: 6px;
+      text-align: center;
+      font-weight: bold;
+      transition: transform 0.2s;
+    }
+
+    .skills-list li:hover {
+      transform: scale(1.05);
+      background: #f1f2f6;
+    }
+
+    /* Projects */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .project-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 25px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+      text-align: center;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .project-card h3 {
+      margin-bottom: 10px;
+      color: #40739e;
+    }
+
+    .project-card a {
+      display: inline-block;
+      margin-top: 10px;
+      color: #40739e;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .project-card a:hover {
+      text-decoration: underline;
+    }
+
+    /* Contact */
+    #contact ul {
+      list-style: none;
+      margin-top: 15px;
+      text-align: center;
+    }
+
+    #contact li {
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      background: #273c75;
+      color: #fff;
+      padding: 15px 0;
+      margin-top: 50px;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1>Arnel A. Bangahon</h1>
+      <p>Full-Stack Web Developer | Shopify & Webflow Specialist</p>
+      <a href="#projects" class="btn">View My Work</a>
+    </div>
+  </header>
+
+  <!-- About -->
+  <section id="about">
+    <div class="container">
+      <h2>About Me</h2>
+      <p>
+        Hi! I’m Arnel Bangahon, a passionate Full-Stack Web Developer from Island Garden City of Samal, Philippines. 
+        I specialize in building e-commerce websites with Shopify and Webflow, and I have experience in HTML, CSS, 
+        JavaScript, Python, and Java. I love combining clean design with modern development to deliver fast and 
+        user-friendly websites.
+      </p>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <div class="container">
+      <h2>Skills</h2>
+      <ul class="skills-list">
+        <li>HTML5 / CSS3 / JavaScript</li>
+        <li>Shopify (Liquid)</li>
+        <li>Webflow Development</li>
+        <li>Python & Java</li>
+        <li>Responsive Web Design</li>
+        <li>GitHub / Version Control</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <div class="container">
+      <h2>Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <h3>Shopify Store Mockup</h3>
+          <p>A demo Shopify store showcasing product pages, collections, and checkout flow.</p>
+          <a href="http://127.0.0.1:5500/Shopify.html">View Demo</a>
+        </div>
+        <div class="project-card">
+          <h3>Webflow Landing Page</h3>
+          <p>A modern Webflow landing page designed for conversions and responsive UI.</p>
+          <a href="http://127.0.0.1:5500/LandingPage.html">View Demo</a>
+        </div>
+        <div class="project-card">
+          <h3>Order System POS App</h3>
+          <p>A Java + Android POS app with inventory tracking, sales reports, and admin features.</p>
+          <a href="https://github.com/arnelbangahon19-collab/Arnel_Project">View on GitHub</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container">
+      <h2>Contact Me</h2>
+      <p>If you’d like to collaborate or hire me, feel free to reach out!</p>
+      <ul>
+        <li>Email: <a href="mailto:arnelbangahon19@gmail.com">arnelbangahon19@gmail.com</a></li>
+        <li>Phone: 09664617079</li>
+        <li>GitHub: <a href="https://github.com/arnelbangahon19" target="_blank">github.com/arnelbangahon19</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Arnel A. Bangahon | All Rights Reserved</p>
+  </footer>
+
+</body>
+</html>
